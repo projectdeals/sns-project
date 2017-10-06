@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block content %}
+    <a href="/logout"  class="btn btn-primary float-right " style="margin: 5px">Logout</a>
+    <div class="container">
+    <h3>{{ "Welcome ! " + username}}</h3>
+
+
+    {% for item in items %}
+<form action="/order_item" method="post">
+<div class="card " style="width: 40rem;padding:20px;margin-bottom: 10px">
+  <div class="card-body">
+    <h4 class="card-title">{{ item['item_name']}}</h4>
+
+    <p class="card-text">{{ item['description'] }}</p>
+      <p class="card-text"><b>Price : ₹ {{ item['price'] }}</b><input hidden  class="col-md-2" type="number" name="price" value="{{ item['price'] }}"></p>
+      <p><b>Quantity : </b><input class="form-control col-md-2 "   style="margin: 5px" type="number" name="quantity" value=0></p>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </div>
+</div>
+</form>
+    {% endfor %}
+    <form action="/success" method="post">
+    <p><b>Total : ₹ {{ total_price }}</b> <input  hidden class="form-control col-md-3 " style="margin: 5px" type="text" name="total" value="{{ total_price }}" ></p>
+      <button  type="submit" style="margin: 5px" class="btn btn-primary">Order</button>
+    </form>
+    </div>
+{% endblock %}
+

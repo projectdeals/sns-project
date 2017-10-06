@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Foody spot</title>
+
+    <link href="../static/bootstrap.css" rel="stylesheet">
+    <link href="../static/bootstrap-grid.css" rel="stylesheet">
+    <link href="../static/bootstrap-reboot.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='main.css') }}">
+    <link rel="javascript" href="{{ url_for('static',filename='function.js') }}">
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">Foody Spot</h1>
+    <p class="lead">Easy to Order! Taste the Variety!</p>
+  </div>
+</div>
+{%block content%}
+{% endblock %}
+</body>
+</html>
